@@ -1,10 +1,10 @@
 from django.http import JsonResponse
 from django.shortcuts import redirect, render
-from django.contrib import messages
+
 
 from store.models import Cart, Product
 
-
+# @login_required(login_url='loginpage')
 def addtocart(request):
     if request.method == 'POST':
         if request.user.is_authenticated:
@@ -26,7 +26,7 @@ def addtocart(request):
             return JsonResponse({'status': "Login to continue"})
     return redirect('/')
 
-
+# @login_required(login_url='loginpage')
 def viewcart(request):
     # cart = Cart.objects.filter(user=request.user)
     cart = Cart.objects.all()
