@@ -33,5 +33,5 @@ Pour ajouter de nouveaux produits ou catégories, connectez-vous au panneau d'ad
 Acheter des produits
 Les utilisateurs peuvent acheter des produits en ajoutant des articles à leur panier et passer leur commandes. Pour ajouter des articles au panier, cliquez sur le bouton "Ajouter au panier" sur la page du produit. Pour passer votre commande, cliquez sur le bouton "Checkout", vérifiez votre commande et cliquez sur "Commander" pour finaliser votre achat.
 
-Consulter les commandes établies
+Consulter les commandes établies et l'historique
 Les utilisateurs peuvent consulter l'ensemble des commandes passées en cliquant sur "My orders" et avoir des leurs details de la livraison et les details du produit en cliquant dur "View" présentant devant chaque commande. 
