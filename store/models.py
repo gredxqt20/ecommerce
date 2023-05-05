@@ -1,4 +1,6 @@
 from django.db import models
+
+from django.contrib.auth.models import User
 import datetime
 import os
 
@@ -46,8 +48,6 @@ class Product(models.Model):
 
     def _str_(self):
         return self.name
-
-
 class Cart(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)

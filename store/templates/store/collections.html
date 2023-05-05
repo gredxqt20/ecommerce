@@ -1,0 +1,36 @@
+{% extends 'store/layouts/main.html' %}
+
+{% block content %}
+<div class="py-4 bg-primary">
+    <div class= "container">
+        <a class="text-white" href= "{% url 'home' %}"> Home / </a>
+        <a class="text-white" href= "{% url 'collections' %}"> Collections / </a>
+    </div>
+</div>
+<div class = "container">
+    <div class = "row">
+        <div class = "col-md-12">
+          <h1>Collections<h1>
+            <div class="row">
+                {% for item in category %}
+                {% if forloop.counter0|divisibleby:3 %}
+                </div>
+                <div class="row">
+                {% endif %}
+                <div class="col-md-3">
+                    <div class="card mb-3">
+                        <a href="{% url 'collectionsview' item.slug %}">
+                            <img src="{{item.image.url}}" class="card-img-top" alt="{{item.name}}">
+                        </a>
+                        <div class="card-body">
+                            <h5 class="card-title">{{item.name}}</h5>
+                            <p class="card-text">{{item.description}}</p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
