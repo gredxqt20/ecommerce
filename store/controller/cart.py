@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
 from django.shortcuts import redirect, render
 
@@ -26,10 +27,9 @@ def addtocart(request):
             return JsonResponse({'status': "Login to continue"})
     return redirect('/')
 
-# @login_required(login_url='loginpage')
+@login_required(login_url='loginpage')
 def viewcart(request):
-    # cart = Cart.objects.filter(user=request.user)
-    cart = Cart.objects.all()
+    cart = Cart.objects.filter(user=request.user)
     context = {'cart': cart}
     return render(request, "store/products/cart.html", context)
 

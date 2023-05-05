@@ -24,7 +24,7 @@ def index(request):
     return render(request, "store/products/checkout.html", context)
 
 
-# @login_required(login_url='loginpage')
+@login_required(login_url='loginpage')
 def placeorder(request):
     if request.method == 'POST':
         neworder = Order()
@@ -39,7 +39,7 @@ def placeorder(request):
         neworder.county = request.POST.get('county')
         neworder.pincode = request.POST.get('pincode')
 
-        neworder.payment_mode = request.Post.get('payment_mode')
+        neworder.payment_mode = request.POST.get('payment_mode')
         cart = Cart.objects.filter(user=request.user)
         cart_total_price = 0
         for item in cart:
@@ -68,3 +68,4 @@ def placeorder(request):
         Cart.objects.filter(user=request.user).delete()
         messages.success(request, "Your order has been placed successfully")
     return redirect('/')
+

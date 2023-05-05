@@ -11,24 +11,37 @@
 <div class = "container">
     <div class = "row">
         <div class = "col-md-12">
-        </br>
-        </br> 
-
-            <div class = "row">
+            <div class = "row ">
                 {% for item in products  %}
                 <div class = "col-md-3">
-                    <div class = "card">
+                    <div class = "card shadow product_data">
                         <a href=" {% url 'collectionsview' item.slug %} " class="text-decoration-none"/>
                         <div class = "card-body">
+                            {% csrf_token %}
                             <div class = "category-image">
                                 <img src = "{{item.product_image.url}}" class="w-100" width ="500" height ="300px"alt="Category image"/>
                             </div>
-                                <h4 class="text-center text-dark">{{ item.name}} </h4>
-                                <span class="price font-weight-bold text-dark">${{ item.selling_price|stringformat:'d' }}</span>
-                                {% if item.original_price > item.selling_price %}
-                                    <span class="price font-weight-light text-muted ml-2"><s>${{ item.original_price|stringformat:'d' }}</s></span>
-                                {% endif %}
-                                
+                            <h4 class="text-center text-dark">{{ item.name}} </h4>
+                            <span class="price font-weight-bold text-dark">${{ item.selling_price|stringformat:'d' }}</span>
+                            {% if item.original_price > item.selling_price %}
+                                <span class="price font-weight-light text-muted ml-2"><s>${{ item.original_price|stringformat:'d' }}</s></span>
+                            {% endif %}
+
+                            <hr/>
+                            {% if item.quantity > 0%}
+                                <label class="badge bg-success">In Stock</label>
+                            {% else %}
+                                <label class="badge bg-success">Out of Stock</label>
+                            {% endif %}
+                            <input type="hidden" value="{{item.quantity}}" class="qty_input">
+                            <input type="hidden" value="{{item.id}}" class="prod_id">
+
+                            <div class="col-md-9">
+                                <br/>
+                                {% if item.quantity > 0 %}
+                                    <button type="button" class="btn btn-primary me-3 float-start addToCartBtn">Add to Cart <i class="fa fa-shopping"></i></button>
+                                {%endif%}
+                            </div>
                         </div>
                     </div>
                 </div>
