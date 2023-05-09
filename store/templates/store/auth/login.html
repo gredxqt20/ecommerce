@@ -7,7 +7,7 @@
             <div class="">
                 <div class="card mt-3 shadow">
                     <div class="card-body">
-                        <form action=""method="POST">
+                        <form action="{% url 'loginpage' %}"method="POST">
                             {% csrf_token %}
                             <div class="text-center">
                                 <h4>

@@ -1,4 +1,5 @@
 from django.contrib.auth import authenticate, login, logout
+
 from django.shortcuts import redirect, render
 from django.contrib import messages
 
@@ -11,7 +12,7 @@ def register(request):
         form = CustomUserForm(request.POST)
         if form.is_valid():
             form.save()
-            messages.success(request, "Registred Successfuly Login to continue")
+            messages.success(request, "Registered Successfully Login to continue")
     context = {'form': form}
     return render(request, "store/auth/register.html", context)
 
@@ -30,7 +31,7 @@ def loginpage(request):
             if user is not None:
                 login(request, user)
                 messages.success(request, "Logged in Successfully")
-                return redirect("/")
+                return redirect("/home")
             else:
                 messages.error(request, "Invalid Username or Password")
                 return redirect('/login')
@@ -38,7 +39,6 @@ def loginpage(request):
 
 
 def logoutpage(request):
-    if request.user.is_autheticated:
-        logout(request)
-        messages.success(request, "Logged out Successfully")
-    return redirect("/")
+    logout(request)
+    messages.success(request, "Logged out Successfully")
+    return redirect("/home")

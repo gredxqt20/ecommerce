@@ -10,12 +10,11 @@ from store.models import Cart, Order, OrderItem, Product
 
 # @login_required(login_url='loginpage')
 def index(request):
-    # rawcart = Cart.objects.filter(user=request.user)
-    rawcart = Cart.objects.filter(user=1)
+    rawcart = Cart.objects.filter(user=request.user)
     for item in rawcart:
         if item.product_qty > item.product.quantity:
             Cart.objects.delete(id=item.id)
-    cartitems = Cart.objects.filter(user=1)
+    cartitems = Cart.objects.filter(user=request.user)
     total_price = 0
     for item in cartitems:
         total_price = total_price + item.product.selling_price * item.product_qty
@@ -67,5 +66,5 @@ def placeorder(request):
         # To clear user's Cart
         Cart.objects.filter(user=request.user).delete()
         messages.success(request, "Your order has been placed successfully")
-    return redirect('/')
+    return redirect('/myorders')
 

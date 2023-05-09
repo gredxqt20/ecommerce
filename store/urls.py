@@ -14,7 +14,7 @@ urlpatterns = [
     path('collections/<str:slug>', views.collectionsview, name='collectionsview'),
     path('register/', authview.register, name="register"),
     path('login/', authview.loginpage, name="loginpage"),
-    path('logout/', authview.logout, name="logout"),
+    path('logout/', authview.logoutpage, name="logoutpage"),
     path('my-orders', order.index, name="myorders"),
     path('view-order/<str:t_no>', order.vieworder, name="orderview")
 ]

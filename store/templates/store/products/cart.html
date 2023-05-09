@@ -30,7 +30,7 @@
                                         {% csrf_token %}
                                         {% if item.product.quantity >= item.product_qty %}
                                             <label>Quantity</label>
-                                            <div class="input-group text-center mb-3" style="width:130px;">
+                                            <div class="input-group text-center mb-3 " style="width:130px;">
                                                 <button class="input-group-text changeQuantity decrement-btn"> - </button>
                                                 <input type="text" name="quantity" class="form-control qty-input text-center" value="{{item.product_qty}}">
                                                 <button class="input-group-text changeQuantity increment-btn">+</button>
