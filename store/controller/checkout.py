@@ -66,5 +66,5 @@ def placeorder(request):
         # To clear user's Cart
         Cart.objects.filter(user=request.user).delete()
         messages.success(request, "Your order has been placed successfully")
-    return redirect('/myorders')
+    return redirect('/my-orders')
 

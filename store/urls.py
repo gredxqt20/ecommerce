@@ -10,6 +10,7 @@ urlpatterns = [
     path('checkout', checkout.index, name="checkout"),
     path('place-order', checkout.placeorder, name="placeorder"),
     path('home', views.home, name="home"),
+    path('', views.home, name="home"),
     path('collections/', views.collections, name='collections'),
     path('collections/<str:slug>', views.collectionsview, name='collectionsview'),
     path('register/', authview.register, name="register"),

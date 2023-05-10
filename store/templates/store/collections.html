@@ -1,16 +1,13 @@
 {% extends 'store/layouts/main.html' %}
 
 {% block content %}
-<div class="py-4 bg-primary">
-    <div class= "container">
-        <a class="text-white" href= "{% url 'home' %}"> Home / </a>
-        <a class="text-white" href= "{% url 'collections' %}"> Collections / </a>
-    </div>
-</div>
+<div style="background: linear-gradient(to right, #FFA500, #FFA500 50%, #800080 50%, #800080); padding: 10px; display: flex; align-items: center;">
+    <h2 style="color: white; margin: 0; text-align: center; width: 100%;">CATEGORIES</h2>
+  </div>
 <div class = "container">
     <div class = "row">
         <div class = "col-md-12">
-          <h1>Collections</h1>
+
             <div class="row">
                 {% for item in category %}
                 {% if forloop.counter0|divisibleby:3 %}
