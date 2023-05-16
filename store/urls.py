@@ -17,5 +17,6 @@ urlpatterns = [
     path('login/', authview.loginpage, name="loginpage"),
     path('logout/', authview.logoutpage, name="logoutpage"),
     path('my-orders', order.index, name="myorders"),
+    path('products', views.products, name="products"),
     path('view-order/<str:t_no>', order.vieworder, name="orderview")
 ]

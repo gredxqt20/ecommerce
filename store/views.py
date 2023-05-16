@@ -5,7 +5,15 @@ from store.models import Category, Product
 
 
 def home(request):
-    return render(request, "store/index.html")
+    products = Product.objects.all
+    context = {'products': products}
+    return render(request, "store/index.html", context)
+
+
+def products(request):
+    products = Product.objects.all
+    context = {'products': products}
+    return render(request, "store/products/product.html", context)
 
 def my_view(request):
     data = Product.objects.values('name')
